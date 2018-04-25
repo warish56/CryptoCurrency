@@ -1,0 +1,171 @@
+
+
+
+
+
+<div class="row" id="page">
+
+  <div class="col-md-4">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+      <!--Previous-->
+      <label class="btn btn-outline-primary "  (click)="onPrev()" *ngIf="start>=100">
+        <input type="radio" name="options" id="option0" autocomplete="off" > Previous 100
+      </label>
+
+      <!--Next-->
+      <label class="btn btn-outline-primary "  (click)="onNext()">
+        <input type="radio" name="options" id="option1" autocomplete="off" > Next 100
+      </label>
+
+      <!--View All-->
+      <label class="btn btn-outline-primary" (click)="onViewAll()">
+        <input type="radio" name="options" id="option2" autocomplete="off"> View All
+      </label>
+
+    </div>
+  </div>
+</div>
+
+<table class="table table-bordered  table-hover">
+  <thead class="thead-light " >
+  <tr>
+    <th class="top" scope="col">#</th>
+    <th class="top" scope="col">Name</th>
+    <th class="top" scope="col">Market Cap</th>
+    <th class="top" scope="col">Price</th>
+    <th class="top" scope="col">Circulating Supply</th>
+
+    <th class="top" scope="col">Change(1h)</th>
+    <th class="top" scope="col">Change(24h)</th>
+    <th class="top" scope="col">Change(7d)</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of localContent; let i=index" id="tableRow">
+    <th scope="row">{{item.rank}}</th>
+    <td id="name" data-toggle="modal" data-target="#itemModal" (click)="onSelected(i)">{{item.name}}</td>
+    <td>{{item.market_cap_usd | currency:'USD'}}</td>
+    <td id="price" data-toggle="modal" data-target="#itemModal" (click)="onSelected(i)">{{item.price_usd | currency:'USD'}}</td>
+    <td id="supply" data-toggle="modal" data-target="#itemModal" (click)="onSelected(i)">{{item.available_supply }} {{item.symbol}}</td>
+    <td [ngStyle]=" item.percent_change_1h >0 ? {color:'green'} : {color:'red'}"> {{item.percent_change_1h}}% </td>
+    <td [ngStyle]=" item.percent_change_24h >0 ? {color:'green'} : {color:'red'}"> {{item.percent_change_24h}}% </td>
+    <td [ngStyle]=" item.percent_change_7d >0 ? {color:'green'} : {color:'red'}"> {{item.percent_change_7d}}% </td>
+
+
+  </tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade"   id="itemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="itemSelected!==undefined">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" >
+      <div class="modal-body" id="modal">
+
+        <div class="card">
+          <div class="card-header" id="Ctitle">
+
+            {{itemSelected.name}}
+            <span class="text-muted">
+              ({{itemSelected.symbol}})
+            </span>
+
+
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          </div>
+
+          <div class="card-body">
+
+            <div id="row1">
+              <h3>
+              <p>{{itemSelected.price_usd | currency:'USD'}}
+
+              <span id="type">
+                USD
+              </span>
+
+              <span id="grow"  [ngStyle]=" itemSelected.percent_change_24h >0 ? {color:'green'} : {color:'red'}">
+                ({{itemSelected.percent_change_24h}}%)
+              </span>
+              </p>
+              </h3>
+            </div>
+
+            <hr>
+
+            <div id="row2">
+              <h4><p class="rows">Marketing Cap:
+
+                <span class="rows">    {{itemSelected.market_cap_usd | currency:'USD'}} </span>
+
+              </p></h4>
+
+              <h4><p class="rows">Circulating Supply:
+
+                <span class="rows">  {{itemSelected.available_supply }} {{itemSelected.symbol }} </span>
+
+              </p></h4>
+
+              <h4><p class="rows">Max Supply:
+
+                <span class="rows"> {{itemSelected.total_supply }} {{itemSelected.symbol }} </span>
+
+              </p></h4>
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="row" id="pageDown">
+  <div class="col-md-4">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+      <!--Previous-->
+      <label class="btn btn-outline-primary "  (click)="onPrev()" *ngIf="start>=100">
+        <input type="radio" name="options" id="option0" autocomplete="off" > Previous 100
+      </label>
+
+      <!--Next-->
+      <label class="btn btn-outline-primary "  (click)="onNext()">
+        <input type="radio" name="options" id="option1" autocomplete="off" > Next 100
+      </label>
+
+      <!--View All-->
+      <label class="btn btn-outline-primary" (click)="onViewAll()">
+        <input type="radio" name="options" id="option2" autocomplete="off"> View All
+      </label>
+
+    </div>
+  </div>
+</div>
+
+<br><br>
+<hr>
+<div id="global" *ngIf="globalContent!==undefined">
+  <p>Total Market Cap: {{globalContent.total_market_cap_usd |currency:'USD'}}
+
+  </p>
+</div>

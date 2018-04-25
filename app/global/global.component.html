@@ -1,0 +1,18 @@
+
+<div class="row" id="body" *ngIf="globalContent!==undefined">
+  <div class="col-md-3">
+    <p>Cryptocurrencies:
+      <span>{{globalContent.active_currencies}}</span> / Markets: <span>{{globalContent.active_markets}}</span>
+    </p>
+  </div>
+
+  <div class="col-md-6">
+
+    <p>Market Cap:
+      <span>{{globalContent.total_market_cap_usd | currency:'USD'}}</span> / 24h Vol: <span>{{globalContent.total_24h_volume_usd |currency:'USD'}}</span> / BTC Dominance: <span>{{globalContent.bitcoin_percentage_of_market_cap}} %</span>
+    </p>
+  </div>
+
+  <div class="col-md-3"></div>
+
+</div>

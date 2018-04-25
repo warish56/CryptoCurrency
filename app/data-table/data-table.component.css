@@ -1,0 +1,93 @@
+
+
+#page{
+  padding: 5px;
+float: right;
+}
+
+
+
+th.top{
+  position: sticky;
+  top: -1px;
+}
+th.top:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#tableRow:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+#name{
+  color: dodgerblue;
+  cursor: pointer;
+}
+#name:hover{
+  text-decoration: underline;
+
+}
+
+
+
+#modal{
+  padding: 0px;
+}
+
+#price{
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+#price:hover{
+  text-decoration: underline;
+
+}
+
+#supply{
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+#supply:hover{
+  text-decoration: underline;
+
+}
+#Ctitle{
+  text-align: center;
+  color: black;
+  font-weight:bold;
+  font-size: large;
+}
+
+#type{
+  text-align: center;
+  color: black;
+  font-size: 15px;
+}
+
+#row1{
+  text-align: center;
+}
+
+p.rows{
+  font-size: 18px;
+}
+span.rows{
+  font-size: 15px; opacity: 0.5; float: right;
+}
+
+
+#pageDown{
+  padding: 5px;
+  float: right;
+}
+
+#global{
+  text-align: center;
+color: black;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,19 @@
+
+#body{
+  background-color: #f8f8f8;
+}
+
+.col-md-3{
+  text-align: center;
+  }
+.col-md-6{
+  text-align: center;
+}
+
+span{
+  color: darkblue;
+  font-weight: bold;
+}
+span:hover{
+  text-decoration: underline;
+}

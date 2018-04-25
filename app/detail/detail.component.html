@@ -1,0 +1,36 @@
+
+<div class="row">
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-primary btn-block" (click)="onBack()"><span class="fa fa-arrow-left"></span>   Back</button>
+  </div>
+</div>
+<br><br>
+<div class="row" *ngIf="item!== undefined">
+
+  <div class="col-md-4">
+    <div id="heading" >
+      <p>{{item[0].name}} <span class="text-muted" id="symbol"> ({{item[0].symbol}})</span></p>
+    </div>
+  </div>
+
+
+  <div class="col-md-8">
+    <div class="row" >
+      <p id="price">{{item[0].price_usd | currency:'USD'}}
+
+      <span id="money">USD</span>
+        <span [ngStyle]="item[0].percent_change_24h > 0 ?{color:'green'}:{color:'red'} ">({{item[0].percent_change_24h}}%)</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <div id="content">
+    <p class="title"> Market Cap : <span class="ans">{{item[0].market_cap_usd | currency:'USD'}} USD</span></p>
+    <p class="title"> Circulating Supply : <span class="ans">{{item[0].available_supply}} {{item[0].symbol}}</span></p>
+    <p class="title"> Max Supply : <span class="ans">{{item[0].total_supply}} {{item[0].symbol}}</span></p>
+    </div>
+
+
+  </div>
+</div>
